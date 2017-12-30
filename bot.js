@@ -1,6 +1,12 @@
 var Discord = require('discord.io');
 var logger = require('winston');
 var auth = require('./auth.json');
+var helpMessage = 'Welcome to the Radford University Cyber Defense Club! I\'m here to help you with club things!\nHere are some of the available commands\n'
+                    + '\t!contact - Displays contact information for the officers!\n'
+                    + '\t!meeting - Display the club meeting information!';
+// TODO: Implemet a DB to pull all club info from
+var contactInfo = 'The officers\' emails are as follows:\n\tJacob Walters - jwalters22@radford.edu\n\tJohnnie Myers - jmyers69@radford.edu\n\tBen Adams - badams5@radford.edu\n\tMichael Basala - mbasala@radford.edu';
+var meetingInfo = 'The club holds its meetings on Tuesdays at 17:00 (05:00PM) in the ARTIS LAB';
 // Configure logger settings
 logger.remove(logger.transports.Console);
 logger.add(logger.transports.Console, {
@@ -36,8 +42,21 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             case 'help':
                 bot.sendMessage({
                     to: channelID,
-                    message: 'Welcome to the Radford University Cyber Defense Club!\nI\'m here to help you with club things!'
-                })
+                    message: helpMessage + "\n" + args
+                });
+            break;
+            case 'contact':
+                bot.sendMessage({
+                    to: channelID,
+                    message: contactInfo
+                });
+            break;
+            case 'meeting':
+                bot.sendMessage({
+                    to: channelID,
+                    message: meetingInfo
+                });
+            break;
             // Just add any case commands if you want to..
          }
      }
