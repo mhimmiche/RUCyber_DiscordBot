@@ -1,0 +1,11 @@
+{
+  "name": "RUCyber-bot",
+  "version": "1.0.0",
+  "description": "RU Cyber Defense Club Discord Bot",
+  "main": "bot.js",
+  "author": "Mehdi Himmiche",
+  "dependencies": {
+    "discord.io": "github:woor/discord.io#gateway_v6",
+    "winston": "^2.4.0"
+  }
+}
